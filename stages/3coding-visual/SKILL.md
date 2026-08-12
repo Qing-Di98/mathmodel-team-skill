@@ -38,6 +38,7 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob, Agent, WebSearch, WebFetc
 4. 输出核心结果。
 5. 绘制丰富的图表。
 6. 在 `reports/RESULTS_REPORT.md` 中写清楚方法、关键数值和校验结果。
+7. 本子问题求解完成后，生成 `reports/求解报告_qN.md`：总结求解中遇到的主要问题与改进方案、揣摩出题人意图、用通俗语言讲解建模方案与代码思路（模板见 `<SKILL_ROOT>/references/求解报告模板.md`）。该报告仅供用户理解，**只起辅助作用**，不构成门禁，不阻塞流程。
 
 优化类问题必须先保证可行解，再优化目标值。预测类问题必须做训练/验证划分或合理误差评估。评价类问题必须说明指标方向、归一化方法和权重来源。
 

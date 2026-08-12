@@ -21,9 +21,13 @@
 
 | 任务 | 读取 |
 |---|---|
+| 竞赛要求（弹性需求/格式/支撑材料构成） | `竞赛要求.md` |
+| 关键决策与用户确认（1.是/2.否/3.其他） | `决策确认机制.md` |
+| 解题手分工（依赖判定/基础问共同实现/实力分配） | `分工建议.md` |
 | 选模型 | `roles/建模手/references/建模设计理论.md` |
 | 查具体算法 | `算法索引.md`，再读取一个匹配的 `../assets/*.md` |
 | Python/MATLAB 实现 | `roles/编程手/references/工作流程.md` |
+| 写求解报告（问题/意图/通俗讲解） | `求解报告模板.md` |
 | MATLAB 工具箱与出图 | `roles/编程手/references/MATLAB规范.md` |
 | 可视化 | `../tools/figure/SKILL.md` |
 | 图型选择与科研绘图避坑 | `../tools/figure/references/chart-types/chart_selection.md` |

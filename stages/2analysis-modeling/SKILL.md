@@ -23,6 +23,7 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob, Agent, WebSearch, WebFetc
 
 ## 工作流程
 
+> **用户确认**：假设的提出与取舍、模型选取、数据口径等关键决策，须先按 `<SKILL_ROOT>/references/决策确认机制.md` 提出方案并给出选项（1.是 / 2.否 / 3.其他），等待用户选择后再执行；确认结果记入契约。
 
 ### Step 1: 子问题拆解
 
