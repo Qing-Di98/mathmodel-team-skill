@@ -14,6 +14,26 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob, Agent, WebSearch, WebFetc
 
 如需领域判断，读取 `../_references/math_modeling_norms.md` 中的“论文写作”“图表与可视化”和“非数据图工具选择”小节。该文件只作为规范知识库，论文结构仍按比赛模板和当前赛题内容决定。
 
+**团队课件建议（本队写作标准）**：写作前必读 `<SKILL_ROOT>/references/课件/论文写作.md`，按其建议执行——摘要 300-400 字且包含问题/方法/创新点/关键结果/结论五要素（第一段约 200 字加粗、结果量化、创新突出）；按"结构黄金模板"组织章节并控制篇幅（问题重述+分析 1-1.5 页、模型假设+符号说明 0.5 页、模型建立与求解 12-15 页、模型检验与评价 2-3 页、推广+参考文献 1 页）；模型阐述符号先行、公式编号、推导完整；结果展示三线表、高清图、对比分析、可视化创新。其余课件（`references/课件/` 下 docx：备赛教案、建模思维与流程、AHP、TOPSIS、bigM、PuLP、优化+评价模型、CUMCM 国赛案例等）按需阅读。
+
+## 官方内置 Skills 调用登记（英文论文与写作辅助）
+
+以下为 Claude Code 内置 skills（不落盘、不可拷贝），按需直接调用，**仓库内自足工具优先**：
+
+| 任务 | 调用 skill | 与仓库工具的关系 |
+|---|---|---|
+| 论文写作方法论（结构/表述通用方法） | `ml-paper-writing` | 方法论补充，不替代课件论文写作.md 本队标准 |
+| 英文论文（MCM/ICM）撰写 | `nature-writing` | 与 `5writing` 模板流程互补 |
+| 英文润色/改写 | `nature-polishing` | 英文定稿前调用 |
+| 审稿视角自检 | `nature-reviewer` | 补充 `6verity` 终检 |
+| 文献精读 | `nature-reader` | 按需 |
+| 统计表述规范 | `nature-statistics` | 按需 |
+| 引用格式核验 | `nature-citation`、`nature-ref-verifier` | 引用仍以当届官方规范为准 |
+| 学术检索 | `nature-academic-search` | 与 `tools/paper_search` 双引擎并存，仓库工具优先 |
+| 通用可视化规范 | `dataviz` | 仅作 `tools/figure` 契约的参考，figure 契约仍为唯一契约 |
+| Word 生成 | `docx` | 仓库 `tools/docx` 优先（哈希/OMML 门禁完整），内置 docx 仅作备选 |
+| 画布/协作排版 | `canvas-design`、`doc-coauthoring` | 按需；论文仍集中合稿，不分散多人并写 |
+
 ## 模板族
 
 本技能内捆绑的模板位于：

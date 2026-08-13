@@ -23,6 +23,8 @@ description: 数学建模团队工作流（融合版）。当用户要求数学�
 | 阶段质检 | `M1/P1/P2/W1/W2` 独立 Subagent 门禁（`references/Subagent调度.md`）+ `stages/6verity` 脚本化终检（writing_check.sh、PDF 逐页视觉） | — |
 | 环境检查 | `stages/doctor` | — |
 | 官方规则核验/附件盘点/文献调研/原型/对照实现 | `references/Subagent调度.md` 可选协作，默认关闭 | — |
+| 影印版/图片题面识别 | `tools/pdf-ocr`（四引擎 OCR，中英文），挂载于 `stages/2analysis-modeling` | — |
+| 官方内置 skills（英文写作/润色/检索/引用核验等） | `stages/5writing/SKILL.md`"官方内置 Skills 调用登记"按需调用（nature-*、ml-paper-writing、dataviz 等），仓库自足工具优先 | 平台/开发工具（claude-api、update-config、keybindings 等）与数模领域无关，不纳入 |
 
 ## 强制执行协议
 

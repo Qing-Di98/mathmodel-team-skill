@@ -4,6 +4,19 @@
 
 ## 1.0.2 - 2026-08-12
 
+### 收录本队备赛课件（论文写作团队标准）
+
+- 新增 `references/课件/`：收录 `E:\数模\课件\` 全部 11 份备赛资料（论文写作.md + 10 份 docx：备赛教案/新手指南/数模第一节课/建模思维与流程/CUMCM 国赛案例/优化+评价模型/AHP/TOPSIS/bigM/PuLP 代码）。
+- 论文写作标准挂载：`stages/5writing/SKILL.md`"数学建模规范参考"小节新增本队写作标准——写作前必读 `references/课件/论文写作.md`，按其建议执行（摘要 300-400 字五要素、结构黄金模板与篇幅分配、符号先行/公式编号/三线表等）。
+- `references/README.md`：新增"课件资料"导航小节 + "按任务加载"表登记论文写作团队标准入口。
+
+### 融合 pdf-ocr-skill 与官方内置 skills（去芜存菁）
+
+- 新增 `tools/pdf-ocr/`：收录 pdf-ocr-skill 完整源码（四引擎 OCR 脚本 + SKILL.md + requirements），用于影印版/图片题面与附件的中英文文字提取；挂载于 `stages/2analysis-modeling`（正常文本 PDF 仍用 `tools/pdf`）。
+- `stages/5writing/SKILL.md` 新增"官方内置 Skills 调用登记"：英文论文（MCM/ICM）写作/润色/审稿/统计表述（nature-writing、nature-polishing、nature-reviewer、nature-statistics、nature-reader）、引用核验（nature-citation、nature-ref-verifier）、学术检索（nature-academic-search）、写作方法论（ml-paper-writing）、可视化规范（dataviz）、Word 生成（docx）、画布/协作排版（canvas-design、doc-coauthoring）——均为按需调用登记，**仓库内自足工具优先**（tools/paper_search、tools/figure、tools/docx、tools/pdf 等）。
+- 主 SKILL.md 融合来源表登记两行（tools/pdf-ocr、官方内置 skills）；平台/开发工具（claude-api、update-config、keybindings 等）与数模领域无关，明确不纳入。
+- `references/README.md` 工具表登记 `tools/pdf-ocr`。
+
 ### 解题手间互审省略，门禁统一由独立质检 Subagent 承担
 
 - 背景：线下聚合比赛时解题手互不熟悉对方工作，互审质量无保障且占用对方求解时间，解题手间的交叉质检（M1/P1/P2 互审）取消。

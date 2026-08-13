@@ -10,6 +10,8 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob, Agent, WebSearch, WebFetc
 
 如需领域判断，读取 `../_references/math_modeling_norms.md` 中的“赛题理解与子问题识别”“假设与模型建立”和“题型防错速查”小节。该文件只作为规范知识库，不替代本阶段的分析报告结构。
 
+**影印版/图片题面识别**：题面或附件为扫描件、影印版 PDF 或图片时，用 `<SKILL_ROOT>/tools/pdf-ocr/SKILL.md`（四引擎 OCR，支持中英文）提取文字后再进行分析；正常文本 PDF 仍用 `tools/pdf` 读取。
+
 ## 必须产出
 
 在当前工作目录的 `reports/` 子目录中创建或更新：
