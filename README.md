@@ -1,5 +1,7 @@
 # mathmodel-team-skill · 数学建模团队工作流（融合版）
 
+> 当前版本：**v1.0.2**（2026-08-12）
+
 融合 **math-modeling-skill v1.2.0**（[XiaoMaColtAI/math-modeling-skill](https://github.com/XiaoMaColtAI/math-modeling-skill)）与 **MathModelAgent**（skills 子目录）两套 Claude Code 数学建模技能，按"同质内容优先科学准确、全面及时"择优合并。
 
 ## 一、融合了什么
@@ -9,7 +11,11 @@
 | **math-modeling-skill v1.2.0** | 三角色细化规范（建模手/编程手/论文手）、M1/P1/P2/W1/W2 五道独立 Subagent 门禁、主张-证据链与复现清单机制、六件工具（figure/docx/latex/pdf/paper_search/xlsx）、Subagent 调度与可选协作 |
 | **MathModelAgent** | 六阶段细分（分析建模→编程→drawio→写作→验收）、`math_modeling_norms.md` 领域知识库（20+ 小节）、17 个竞赛论文模板（14 中 + 3 英）、11 个科研图模板、Typst 完整参考库、doctor 环境检查 |
 
-**融合新增**：`references/共享契约/`——双解题手并行模式的唯一事实源（题目分析/术语/假设/符号/数据口径/结果锚点六件模板），以及融合入口 `SKILL.md` 的双解题手并行工作流。
+**融合新增**：
+- `references/共享契约/`——双解题手并行模式的唯一事实源（题目分析/术语/假设/符号/数据口径/结果锚点六件模板）；
+- 融合入口 `SKILL.md` 的双解题手并行工作流；
+- 本队机制（v1.0.1 起）：`references/竞赛要求.md`（国赛弹性需求 + 硬性要求）、`references/决策确认机制.md`（关键决策 1.是/2.否/3.其他 用户确认）、`references/分工建议.md`（依赖判定 → 协同/独立模式 → 实力分配）、`references/求解报告模板.md`（每问求解后的辅助报告）；
+- 本队资料（v1.0.2）：`references/课件/`（11 份备赛课件，论文写作.md 为论文写作团队标准）、`tools/pdf-ocr/`（四引擎 OCR，影印版题面）、`stages/5writing` 官方内置 Skills 调用登记（nature-*/ml-paper-writing/dataviz 等，仓库自足工具优先）。
 
 ## 二、为什么融合
 
@@ -29,8 +35,8 @@
 两人按**子问题**分工（如 A=Q3/Q4、B=Q1/Q2），不同于传统建模手/代码手/论文手三角色：
 
 ```
-阶段0 统一契约（共同冻结，只读）
-阶段1 并行求解（各自工作区，交叉质检：A 审 B、B 审 A）
+阶段0 统一契约（共同冻结，只读；M1 独立质检）
+阶段1 并行求解（各自工作区；P1/P2 由独立质检 Subagent 验收——线下协作互不熟悉对方工作，互审省略）
 阶段2 结果锚点对账（数值交叉核对）
 阶段3 集中合稿（W1 证据大纲 → 正文 → W2）
 阶段4 终检（6verity）
@@ -61,10 +67,12 @@ mathmodel-team-skill/
 │   ├── 1start-mathmodel ~ 6verity / doctor / typst-author
 │   ├── mathmodel-figure-templates   # 11 个科研图模板
 │   └── _references/math_modeling_norms.md
-├── tools/                    # figure / docx / latex / pdf / paper_search / xlsx
+├── tools/                    # figure / docx / latex / pdf / pdf-ocr / paper_search / xlsx
 ├── references/
-│   ├── roles/                # 建模手 / 编程手 / 论文手 三角色规范
+│   ├── roles/                # 建模手 / 编程手 / 论文手 三角色规范（上游遗留，仅参考）
 │   ├── 共享契约/             # 双解题手并行模板（本仓库新增）
+│   ├── 课件/                 # 本队备赛课件 11 份（论文写作.md 为写作标准）
+│   ├── 竞赛要求.md / 决策确认机制.md / 分工建议.md / 求解报告模板.md
 │   ├── Subagent调度.md / 算法索引.md / README.md
 ├── assets/ tests/ imgs/ docs/
 └── README.md / CHANGELOG.md / VERSION
