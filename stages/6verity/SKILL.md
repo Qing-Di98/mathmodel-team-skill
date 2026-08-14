@@ -63,6 +63,24 @@ bash "$SCRIPT_PATH" \
 
 脚本只扫描文本，不生成论文，也不编译 PDF。它的 `FAIL` 属于硬错误，必须修复后重跑。
 
+### Step 1.5: 内联公式与科学下标校验
+
+对论文源码运行 `scripts/inline_math_check.py`（写作阶段要求，终检必跑）：
+
+```bash
+SCRIPT_PATH="<按当前 skill 实际位置确定>/scripts/inline_math_check.py"
+PYTHON_BIN="<python3 或项目指定解释器>"
+"$PYTHON_BIN" "$SCRIPT_PATH" --file "$MAIN_FILE" \
+  [--anchors "<锚点文件，每行一条关键数值，防自动替换破坏>"] \
+  | tee -a _tmp/writing_check.log
+```
+
+检查项（`RESULT: FAIL` 即硬错误，必须修复后重跑）：
+
+- **渲染**：正文内联 `$...$` 公式可被 mathtext 渲染（CJK 误捕与 `$$` 块、代码块、图片路径行自动跳过）；无 matplotlib 时标记 `SKIP`，其余检查照常。
+- **样式**：全文无转义星号（`W\*` 类）与裸下标/上标（`r_A`、`λ_max`、`x^2` 文本写法）——PDF 中禁止出现带下划线/星号的符号写法（见 `竞赛要求.md` 排版硬性细节）。
+- **锚点**（提供 `--anchors` 时）：关键数值（如最优解、误差、指标）全部存在，防批量替换破坏数值一致性。
+
 ### Step 2: 章节数量和标题顺序
 
 **Typst 引擎**检查：
