@@ -10,6 +10,8 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob, Agent, WebSearch, WebFetc
 
 如需领域判断，读取 `../_references/math_modeling_norms.md` 中的“赛题理解与子问题识别”“假设与模型建立”和“题型防错速查”小节。该文件只作为规范知识库，不替代本阶段的分析报告结构。
 
+**课件优先（模型使用第一参考）**：模型选取、模型术语、建模步骤优先参考 `<SKILL_ROOT>/references/课件/`（按任务加载表见 `课件/README.md`——数据处理/预测建模、优化模型、评价模型、真题案例均有对应课件）；与课件冲突的术语/步骤一律以课件为准。课件未覆盖时才参考 norms/算法索引等，并沿用课件风格。
+
 **影印版/图片题面识别**：题面或附件为扫描件、影印版 PDF 或图片时，用 `<SKILL_ROOT>/tools/pdf-ocr/SKILL.md`（四引擎 OCR，支持中英文）提取文字后再进行分析；正常文本 PDF 仍用 `tools/pdf` 读取。
 
 ## 必须产出

@@ -15,7 +15,7 @@
 - `references/共享契约/`——双解题手并行模式的唯一事实源（题目分析/术语/假设/符号/数据口径/结果锚点六件模板）；
 - 融合入口 `SKILL.md` 的双解题手并行工作流；
 - 本队机制（v1.0.1 起）：`references/竞赛要求.md`（国赛弹性需求 + 硬性要求）、`references/决策确认机制.md`（关键决策 1.是/2.否/3.其他 用户确认）、`references/分工建议.md`（依赖判定 → 协同/独立模式 → 实力分配）、`references/求解报告模板.md`（每问求解后的辅助报告）；
-- 本队资料（v1.0.2）：`references/课件/`（11 份备赛课件，论文写作.md 为论文写作团队标准）、`tools/pdf-ocr/`（四引擎 OCR，影印版题面）、`stages/5writing` 官方内置 Skills 调用登记（nature-*/ml-paper-writing/dataviz 等，仓库自足工具优先）；
+- 本队资料（v1.0.2+）：`references/课件/`（备赛课件全量同步并 md 化，**模型使用及论文写作第一优先参考、冲突以课件为准**；含 `数据处理与预测模型/`、`优化模型与评价模型/` 分类与 `README.md` 索引）、`tools/pdf-ocr/`（四引擎 OCR，影印版题面）、`stages/5writing` 官方内置 Skills 调用登记（nature-*/ml-paper-writing/dataviz 等，仓库自足工具优先）；
 - 本队资料（v1.0.3）：`references/论文格式规范2026.md`（当届官方格式全文，电子版硬性要求）、`references/摘要写作规范.md`（国一实例逐条印证）、`references/流程图/`（流程图模板规范 + 模板图）、`references/竞赛要求.md` 排版硬性细节（公式大括号/下标规范/图表标题）；`CHANGELOG_UPSTREAM.md` 保存上游历史，`CHANGELOG.md` 只记本队条目。
 
 ## 二、为什么融合
@@ -72,7 +72,9 @@ mathmodel-team-skill/
 ├── references/
 │   ├── roles/                # 建模手 / 编程手 / 论文手 三角色规范（上游遗留，仅参考）
 │   ├── 共享契约/             # 双解题手并行模板（本仓库新增）
-│   ├── 课件/                 # 本队备赛课件 11 份（论文写作.md 为写作标准）
+│   ├── 课件/                 # 本队备赛课件（第一优先学习资源，冲突以课件为准；含 README 索引与按任务加载表，docx 全量 md 化）
+│   │   ├── 数据处理与预测模型/  # 数据预处理/插值/回归/灰色预测 + ARIMA&SARIMA
+│   │   └── 优化模型与评价模型/  # 优化三要素/LP/IP/MILP + AHP/TOPSIS/bigM/PuLP
 │   ├── 竞赛要求.md / 决策确认机制.md / 分工建议.md / 求解报告模板.md
 │   ├── Subagent调度.md / 算法索引.md / README.md
 ├── assets/ tests/ imgs/ docs/

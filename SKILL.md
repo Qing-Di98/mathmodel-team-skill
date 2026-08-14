@@ -26,6 +26,10 @@ description: 数学建模团队工作流（融合版）。当用户要求数学�
 | 影印版/图片题面识别 | `tools/pdf-ocr`（四引擎 OCR，中英文），挂载于 `stages/2analysis-modeling` | — |
 | 官方内置 skills（英文写作/润色/检索/引用核验等） | `stages/5writing/SKILL.md`"官方内置 Skills 调用登记"按需调用（nature-*、ml-paper-writing、dataviz 等），仓库自足工具优先 | 平台/开发工具（claude-api、update-config、keybindings 等）与数模领域无关，不纳入 |
 
+## 课件优先（最高优先级学习资源）
+
+**模型使用及论文写作的学习资源，优先参考 `<SKILL_ROOT>/references/课件/`（源：`E:\数模\课件\`）中的资料。** 不同资料的模型术语、模型步骤等若有冲突，**一律以课件为准**——用户学习的就是这份课件，对其有学习记忆和依赖。课件未覆盖的内容才用其他资料补齐，且术语与步骤格式沿用课件风格。课件目录索引与按任务加载表见 `references/课件/README.md`；每个 docx 均有同名 `.md` 提取版，建模与写作前直接检索。
+
 ## 强制执行协议
 
 用户明确点名本 Skill 或任务命中本 Skill 时，严格执行以下协议；不要把它降级为建议：
