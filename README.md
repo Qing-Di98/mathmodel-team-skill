@@ -1,6 +1,6 @@
 # mathmodel-team-skill · 数学建模团队工作流（融合版）
 
-> 当前版本：**v1.0.3**（2026-08-14）
+> 当前版本：**v1.1.0**（2026-08-14）
 
 融合 **math-modeling-skill v1.2.0**（[XiaoMaColtAI/math-modeling-skill](https://github.com/XiaoMaColtAI/math-modeling-skill)）与 **MathModelAgent**（skills 子目录）两套 Claude Code 数学建模技能，按"同质内容优先科学准确、全面及时"择优合并。
 
@@ -17,6 +17,7 @@
 - 本队机制（v1.0.1 起）：`references/竞赛要求.md`（国赛弹性需求 + 硬性要求）、`references/决策确认机制.md`（关键决策 1.是/2.否/3.其他 用户确认）、`references/分工建议.md`（依赖判定 → 协同/独立模式 → 实力分配）、`references/求解报告模板.md`（每问求解后的辅助报告）；
 - 本队资料（v1.0.2+）：`references/课件/`（备赛课件全量同步并 md 化，**模型使用及论文写作第一优先参考、冲突以课件为准**；含 `数据处理与预测模型/`、`优化模型与评价模型/` 分类与 `README.md` 索引）、`tools/pdf-ocr/`（四引擎 OCR，影印版题面）、`stages/5writing` 官方内置 Skills 调用登记（nature-*/ml-paper-writing/dataviz 等，仓库自足工具优先）；
 - 本队资料（v1.0.3）：`references/论文格式规范2026.md`（当届官方格式全文，电子版硬性要求）、`references/摘要写作规范.md`（国一实例逐条印证）、`references/流程图/`（流程图模板规范 + 模板图）、`references/竞赛要求.md` 排版硬性细节（公式大括号/下标规范/图表标题）；`CHANGELOG_UPSTREAM.md` 保存上游历史，`CHANGELOG.md` 只记本队条目。
+- 本队资料（v1.1.0）：`references/模型假设和符号说明.md`（写作教程 + 24B/24C/25A/25B 国一写法对照 + 硬性要求）、`references/交互知情机制.md`（建模/代码每关键 Step 两级交互，禁止黑箱推进）、`references/云端算力建议.md`（AutoDL 提醒义务 + 公共镜像四要素）、`stages/6verity/scripts/inline_math_check.py`（内联公式与科学下标校验）、课件 14 个 md 全部带目录（`extract_docx.py` 一步提取 + 自动生成，`add_toc.py` 幂等可单跑）、`tests/` 110 个评测回归（主 SKILL 强制协议第 11 条：改仓库必过回归）。
 
 ## 二、为什么融合
 
