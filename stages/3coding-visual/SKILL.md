@@ -29,6 +29,9 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob, Agent, WebSearch, WebFetc
 
 > **用户参与**：汇报骨架结构（目录/脚本划分），确认实现顺序后开始。
 
+### Step 1.5: 工作量评估与云端算力提醒（AutoDL）
+
+按 `<SKILL_ROOT>/references/云端算力建议.md` 评估本阶段总工作量（预计运行时长、GPU/大内存需求、本地环境依赖、数据规模）；满足"预计 ≥30 分钟 / 需 GPU / 本地环境不满足 / 数据量大 / 需并行"任一条件，即按知情层**主动提醒用户可在 AutoDL 上跑**，并给出公共镜像选择建议（框架→CUDA→Python→预装环境四要素；按任务类型推荐镜像；上云前导出 requirements.txt 并在本地跑通最小样例）。用户同意后按决策层确认（1.用 AutoDL / 2.本地跑 / 3.其他）。
 
 ### Step 2: 逐子问题实现
 
