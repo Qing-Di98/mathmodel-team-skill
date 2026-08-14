@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
-"""提取课件 docx 为结构化 md（标题层级 + 正文），供 skill 检索学习。"""
+"""提取课件 docx 为结构化 md（标题层级 + 正文 + 目录），供 skill 检索学习。
+
+一步完成：提取全部 docx 后自动运行 add_toc.py 生成"## 目录"
+（add_toc.py 幂等，可单独重跑）。课件更新流程：复制新 docx → 运行本脚本。
+"""
 import os
 import re
+import subprocess
 import sys
 from docx import Document
 
@@ -38,6 +43,18 @@ def clean(t):
     return t
 
 
+def run_add_toc():
+    """提取后自动生成目录（复用 add_toc.py，幂等；失败仅告警不中断）。"""
+    add_toc = os.path.join(BASE, "add_toc.py")
+    r = subprocess.run([sys.executable, add_toc],
+                       capture_output=True, text=True, encoding="utf-8")
+    sys.stdout.write(r.stdout)
+    if r.stderr:
+        sys.stderr.write(r.stderr)
+    if r.returncode != 0:
+        print(f"WARN: add_toc.py 退出码 {r.returncode}，请手动重跑")
+
+
 def main():
     for src, dst in TARGETS:
         path = os.path.join(BASE, src)
@@ -66,6 +83,7 @@ def main():
         with open(out, "w", encoding="utf-8") as f:
             f.write("\n".join(lines))
         print(f"{src} -> {dst} ({len(lines)} lines)")
+    run_add_toc()
 
 
 if __name__ == "__main__":

@@ -2,6 +2,16 @@
 
 > 本文件只记录**本队（mathmodel-team-skill）自己的版本**。分叉前上游 math-modeling-skill 的完整历史见 `CHANGELOG_UPSTREAM.md`（仅作档案，不再更新）。
 > 当前公开版本从 `1.0.0` 重新建立版本基线。根目录 `VERSION` 是当前版本的唯一准据。
+>
+> **待发布**：以下条目已完成但版本号未提升（`VERSION` 保持 1.1.0），**经用户明确指示提升版本号后**，再将版本号写入本条标题并同步 `VERSION`。
+
+## 待发布（版本号待用户指示后提升）
+
+### 课件提取一步化（extract_docx.py 自动生成目录）
+
+- `references/课件/extract_docx.py` 提取完 12 个 docx 后**自动调用 add_toc.py** 生成"## 目录"——课件更新流程由两步（extract_docx → add_toc）合并为一步；add_toc.py 保持独立可复用（幂等，也可单独重跑）。
+- 验证：全量重跑后 12 个 md 与已提交版本逐字一致（提取→覆盖→重建 TOC 无漂移），`git diff` 仅剩脚本自身改动。
+- 课件 README 更新流程同步简化。
 
 ## 1.1.0 - 2026-08-14
 
