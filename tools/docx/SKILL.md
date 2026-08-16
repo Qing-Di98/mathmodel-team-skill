@@ -112,6 +112,15 @@ python scripts/office/pack.py "<PROJECT_ROOT>/unpacked" "<PROJECT_ROOT>/输出.d
 
 不要在不理解 OOXML 关系和内容类型的情况下直接修改压缩包。
 
+## Word 原位替换图片（docx 直接改包，不重新生成 Word）
+
+需要替换已排版 Word 中的某张图（如流程图重绘、清晰度修复）时，**直接改包**，不要用 python-docx 重新生成整份文档（会破坏既有排版）：
+
+1. 用 `office/unpack.py` 解包 → 用同尺寸新图覆盖 `word/media/` 对应图片字节（文件名对应关系见 `word/_rels/document.xml.rels`）。
+2. **同步两处尺寸字段（关键）**：`word/document.xml` 中该图的 `wp:extent`（`cx`/`cy`）与 `pic:spPr/a:xfrm/a:ext`（`x`/`y`）必须同步为新尺寸——只改 `wp:extent` 不改 `a:ext`，Word 导出 PDF 时按旧 `a:ext` 比例压扁图片（2019 C 题教训：图 9 变方的根因就是两字段不同步）。单位为 EMU（1 cm = 360000 EMU）。
+3. 用 **lxml 精确查找**定位图片节点（按 `r:embed` 的 rel 目标过滤）修改，比正则可靠；改完用 `office/validate.py` 校验，并渲染抽检 PDF 确认比例。
+4. 原位替换后重新打包：`office/pack.py unpacked 输出.docx --original 输入.docx`。
+
 ## 修订
 
 ```powershell
