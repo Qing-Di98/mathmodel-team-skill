@@ -9,6 +9,7 @@ import re
 import subprocess
 import sys
 from docx import Document
+from docx.oxml.ns import qn
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
@@ -28,6 +29,13 @@ TARGETS = [
      "数据处理与预测模型/1数据预处理理论基础.md"),
     ("数据处理与预测模型/2ARIMA&SARIMA时间序列模型零基础全解.docx",
      "数据处理与预测模型/2ARIMA&SARIMA时间序列模型零基础全解.md"),
+    ("数据处理与预测模型/3灰色GM(1,1)完整数学推导、残差检验、封装类代码.docx",
+     "数据处理与预测模型/3灰色GM(1,1)完整数学推导、残差检验、封装类代码.md"),
+    ("数据处理与预测模型/数模国赛聚类分析（K-Means）.docx",
+     "数据处理与预测模型/数模国赛聚类分析（K-Means）.md"),
+    ("数据处理与预测模型/GM(1,1)灰色预测模型在农作物年产量预测中的应用——基于2019-2023年数据的实证分析.docx",
+     "数据处理与预测模型/GM(1,1)灰色预测模型在农作物年产量预测中的应用——基于2019-2023年数据的实证分析.md"),
+    ("数学建模题型与算法对照表.docx", "数学建模题型与算法对照表.md"),
 ]
 
 
@@ -41,6 +49,31 @@ def heading_level(p):
 def clean(t):
     t = re.sub(r"\s+", " ", t).strip()
     return t
+
+
+def cell_text_marked(cell):
+    """单元格文本 + 格式标注：绿色高亮 🟢（优先）、删除线 ⛔（尽量不用）。
+
+    对照表类课件用绿色高亮/划横线表达模型选型偏好，提取为 md 时保留标注。
+    """
+    parts = []
+    for p in cell.paragraphs:
+        seg = []
+        for r in p.runs:
+            t = r.text
+            if t == "":
+                continue
+            rPr = r._element.rPr
+            marks = ""
+            if rPr is not None:
+                hl = rPr.find(qn("w:highlight"))
+                if hl is not None and hl.get(qn("w:val")) == "green":
+                    marks += "🟢"
+                if rPr.find(qn("w:strike")) is not None:
+                    marks += "⛔"
+            seg.append(t + marks)
+        parts.append("".join(seg))
+    return clean("\n".join(parts))
 
 
 def run_add_toc():
@@ -76,7 +109,7 @@ def main():
             lines.append("")
             lines.append(f"<!-- 表 {ti + 1} -->")
             for row in table.rows:
-                cells = [clean(c.text) for c in row.cells]
+                cells = [cell_text_marked(c) for c in row.cells]
                 lines.append("| " + " | ".join(cells) + " |")
             lines.append("")
         out = os.path.join(BASE, dst)
